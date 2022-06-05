@@ -25,3 +25,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.on-blur {
+  filter: blur(0.8px);
+}
