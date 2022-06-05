@@ -27,5 +27,5 @@ body {
 }
 
 .on-blur {
-  filter: blur(0.8px);
+  filter: blur(1.2px);
 }
