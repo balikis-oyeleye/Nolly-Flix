@@ -1,6 +1,6 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkmode: "class",
+  darkMode: "class",
   theme: {
     screens: {
       xs: "320px",
@@ -9,7 +9,11 @@ module.exports = {
       lg: "1024px",
       xl: "1200px",
     },
-    extend: {},
+    extend: {
+      colors: {
+        "dark-blue": "#050532",
+      },
+    },
   },
   plugins: [],
 };
