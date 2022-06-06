@@ -33,10 +33,6 @@ const Sidebar = ({ setToggleSidebar }) => {
             <FaTv /> Tv-Series
           </li>
           <li className="flex items-center gap-3 cursor-pointer">
-            <FaTheaterMasks />
-            Genres
-          </li>
-          <li className="flex items-center gap-3 cursor-pointer">
             <FaRegBookmark /> Bookmarks
           </li>
         </ul>
