@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Header, Sidebar } from "./components";
+import { Header, Sidebar, Routes } from "./components";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -17,6 +17,7 @@ function App() {
           setTheme={setTheme}
           setToggleSidebar={setToggleSidebar}
         />
+        <Routes />
       </div>
       {toggleSidebar && (
         <Sidebar
