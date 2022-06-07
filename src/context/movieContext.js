@@ -3,7 +3,7 @@ import axios from "axios";
 
 const MovieContext = createContext();
 const baseUrl = "https://api.themoviedb.org/3/";
-const apiKey= process.env.React_APP_API_KEY
+const apiKey = process.env.React_APP_API_KEY;
 const movieContext = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
