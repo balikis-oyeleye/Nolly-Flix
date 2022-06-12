@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Header, Sidebar, PageRoutes } from "./components";
 
 function App() {
