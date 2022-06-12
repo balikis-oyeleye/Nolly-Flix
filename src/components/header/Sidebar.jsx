@@ -17,6 +17,7 @@ const Sidebar = ({ setToggleSidebar }) => {
         element.isActive = false;
       });
 
+      setToggleSidebar(false);
       links[_index].isActive = true;
     };
 
