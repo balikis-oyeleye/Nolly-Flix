@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import movieContext from "./context/movieContext";
+import MovieContext from "./context/movieContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <movieContext>
+    <MovieContext>
       <App />
-    </movieContext>
+    </MovieContext>
   </React.StrictMode>
 );
