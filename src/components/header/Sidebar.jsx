@@ -1,12 +1,40 @@
 import React from "react";
-import { FaTv, FaRegBookmark, FaTheaterMasks } from "react-icons/fa";
-import { BiHome, BiMoviePlay, BiX } from "react-icons/bi";
-import { ImFire } from "react-icons/im";
+import { Link } from "react-router-dom";
+import { BiX } from "react-icons/bi";
+import { useMovieContext } from "../../context/movieContext";
 
 const Sidebar = ({ setToggleSidebar }) => {
+  const { links } = useMovieContext();
+
   const onclick = () => {
     setToggleSidebar(false);
   };
+
+  // NavLinks
+  const navLinks = links.map((link, _index) => {
+    const active = () => {
+      links.forEach((element) => {
+        element.isActive = false;
+      });
+
+      links[_index].isActive = true;
+    };
+
+    return (
+      <li
+        key={link.id}
+        className={`${link.isActive ? "active" : "not-active"}`}
+        onClick={active}
+      >
+        <Link
+          to={link.to}
+          className="flex items-center gap-3 cursor-pointer font-bold"
+        >
+          {link.icon} {link.name}
+        </Link>
+      </li>
+    );
+  });
 
   return (
     <aside className="sidebar">
@@ -19,22 +47,7 @@ const Sidebar = ({ setToggleSidebar }) => {
           />
         </div>
         <ul className="sidebar-nav flex flex-col gap-4 mt-5 text-lg dark:text-gray-300">
-          <li className="flex items-center gap-3 cursor-pointer">
-            <BiHome /> Home
-          </li>
-          <li className="flex items-center gap-3 cursor-pointer">
-            <ImFire />
-            Trending
-          </li>
-          <li className="flex items-center gap-3 cursor-pointer">
-            <BiMoviePlay /> Movies
-          </li>
-          <li className="flex items-center gap-3 cursor-pointer">
-            <FaTv /> Tv-Series
-          </li>
-          <li className="flex items-center gap-3 cursor-pointer">
-            <FaRegBookmark /> Bookmarks
-          </li>
+          {navLinks}
         </ul>
       </div>
     </aside>
