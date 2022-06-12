@@ -9,7 +9,7 @@ const Sidebar = ({ setToggleSidebar }) => {
   };
 
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <div className="sidebar-main h-screen w-3/4 lg:w-1/4 sm:w-2/4 bg-white shadow-2xl px-4 pt-2 dark:bg-dark-blue ">
         <div className="sidebar-brand between-row">
           <h1 className="font-bold text-2xl dark:text-gray-200">Nolly-Flix</h1>
@@ -37,7 +37,7 @@ const Sidebar = ({ setToggleSidebar }) => {
           </li>
         </ul>
       </div>
-    </div>
+    </aside>
   );
 };
 

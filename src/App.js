@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className={`App${theme ? " dark" : ""}`}>
-      <div
+      <main
         className={`main ${
           toggleSidebar && "on-blur"
         } dark:bg-dark-blue h-screen`}
@@ -18,7 +18,7 @@ function App() {
           setToggleSidebar={setToggleSidebar}
         />
         <Routes />
-      </div>
+      </main>
       {toggleSidebar && (
         <Sidebar
           toggleSidebar={toggleSidebar}
