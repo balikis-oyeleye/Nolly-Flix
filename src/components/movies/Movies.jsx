@@ -6,13 +6,29 @@ const Movies = () => {
 
   switch (location.pathname) {
     case "/":
-      return <div className="container mx-auto dark:text-white">Home</div>;
+      return (
+        <div className="container mx-auto dark:text-gray-300 mt-4">
+          <h2 className="text-center text-2xl">~Discover Movies~</h2>
+        </div>
+      );
     case "/trending":
-      return <div className="container mx-auto dark:text-white">Trending</div>;
+      return (
+        <div className="container mx-auto dark:text-gray-300 mt-4">
+          <h2 className="text-center text-2xl">~Trending~</h2>
+        </div>
+      );
     case "/movies":
-      return <div className="container mx-auto dark:text-white">Movies</div>;
+      return (
+        <div className="container mx-auto dark:text-gray-300 mt-4">
+          <h2 className="text-center text-2xl">~Movies~</h2>
+        </div>
+      );
     case "/tv-series":
-      return <div className="container mx-auto dark:text-white">Tv-Series</div>;
+      return (
+        <div className="container mx-auto dark:text-gray-300 mt-4">
+          <h2 className="text-center text-2xl">~Tv Series~</h2>
+        </div>
+      );
     default:
       break;
   }
