@@ -1,8 +1,20 @@
-import React from "react";
+import { useEffect } from "react";
+import { useMovieContext } from "../../context/movieContext";
 import { useLocation } from "react-router-dom";
 
 const Movies = () => {
+  const { getResults, requests } = useMovieContext();
   const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      getResults(requests.discoverMovies);
+    } else if (location.pathname === "/trending") {
+      getResults(requests.trendingMovies);
+    } else if (location.pathname === "/movies") {
+      getResults();
+    }
+  }, [location.pathname]);
 
   switch (location.pathname) {
     case "/":

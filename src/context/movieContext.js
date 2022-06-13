@@ -1,23 +1,35 @@
-import React, { createContext, useContext, useReducer } from "react";
-import { reducer } from "./movieReducer";
+import React, { createContext, useContext, useState } from "react";
+import globalCall from "../api/tmdApi";
 import { FaTv } from "react-icons/fa";
 import { BiHome, BiMoviePlay } from "react-icons/bi";
 import { ImFire } from "react-icons/im";
 
 const Movies = createContext();
 
-const baseUrl = "https://api.themoviedb.org/3/";
-const apiKey = process.env.React_APP_API_KEY;
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const MovieContext = ({ children }) => {
-  const [movieState, movieDispatch] = useReducer(reducer, {
-    searchTerm: "",
-    movieSearchList: [],
-    topMovies: [],
-    trending: [],
-    movies: [],
-    tvSeries: [],
-  });
+  const [allMovies, setAllMovies] = useState([]);
+  const [isLoading, setIsLOading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Api request with axios
+  const requests = {
+    discoverMovies: `discover/movie?api_key=3c3d212785e118bdd582d359c385fa32&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`,
+    trendingMovies: `trending/all/day?api_key=3c3d212785e118bdd582d359c385fa32`,
+    movies: `trending/movie/day?api_key=3c3d212785e118bdd582d359c385fa32`,
+    tv_series: `discover/tv?api_key=3c3d212785e118bdd582d359c385fa32&language=en-US&sort_by=popularity.desc&page=1&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0`,
+  };
+
+  // Api calls with axios
+  const getResults = async (url) => {
+    try {
+      const request = await globalCall.get(url);
+      console.log(request.data.results);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // NavLinks for sidebar
   const links = [
@@ -39,7 +51,11 @@ const MovieContext = ({ children }) => {
     },
   ];
 
-  return <Movies.Provider value={{ links }}>{children}</Movies.Provider>;
+  return (
+    <Movies.Provider value={{ links, requests, allMovies, getResults }}>
+      {children}
+    </Movies.Provider>
+  );
 };
 
 export const useMovieContext = () => {
