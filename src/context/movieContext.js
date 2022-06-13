@@ -7,10 +7,11 @@ import { ImFire } from "react-icons/im";
 const Movies = createContext();
 
 const apiKey = process.env.REACT_APP_API_KEY;
+const imagePath = "https://image.tmdb.org/t/p/w500";
 
 const MovieContext = ({ children }) => {
   const [allMovies, setAllMovies] = useState([]);
-  const [isLoading, setIsLOading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
   // Api request with axios
@@ -23,13 +24,17 @@ const MovieContext = ({ children }) => {
 
   // Api calls with axios
   const getResults = async (url) => {
+    setIsLoading(true);
     try {
       const request = await globalCall.get(url);
-      console.log(request.data.results);
+      setAllMovies(request?.data?.results);
     } catch (error) {
       console.log(error);
     }
+    setIsLoading(false);
   };
+
+  console.log(allMovies);
 
   // NavLinks for sidebar
   const links = [
@@ -52,7 +57,9 @@ const MovieContext = ({ children }) => {
   ];
 
   return (
-    <Movies.Provider value={{ links, requests, allMovies, getResults }}>
+    <Movies.Provider
+      value={{ links, requests, allMovies, getResults, imagePath }}
+    >
       {children}
     </Movies.Provider>
   );
