@@ -44,18 +44,33 @@ const Movies = () => {
       return (
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Trending~</h2>
+          {movieList}
         </div>
       );
     case "/movies":
       return (
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Movies~</h2>
+          {movieList}
         </div>
       );
     case "/tv-series":
       return (
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Tv Series~</h2>
+          {allMovies.map((item) => {
+            return (
+              <div className="" key={item.id}>
+                <img
+                  src={`${imagePath}${item.backdrop_path}`}
+                  alt="movies"
+                  width={250}
+                  height={5000}
+                />
+                <h1>{item.name}</h1>
+              </div>
+            );
+          })}
         </div>
       );
     default:
