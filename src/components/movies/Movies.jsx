@@ -12,7 +12,9 @@ const Movies = () => {
     } else if (location.pathname === "/trending") {
       getResults(requests.trendingMovies);
     } else if (location.pathname === "/movies") {
-      getResults();
+      getResults(requests.movies);
+    } else if (location.pathname === "/tv-series") {
+      getResults(requests.tv_series);
     }
   }, [location.pathname]);
 
