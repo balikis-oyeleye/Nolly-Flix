@@ -4,12 +4,14 @@ import Movies from "./movies/Movies";
 
 const PageRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Movies />} />
-      <Route path="/trending" element={<Movies />} />
-      <Route path="/movies" element={<Movies />} />
-      <Route path="/tv-series" element={<Movies />} />
-    </Routes>
+    <div className="dark:bg-dark-blue">
+      <Routes>
+        <Route path="/" element={<Movies />} />
+        <Route path="/trending" element={<Movies />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/tv-series" element={<Movies />} />
+      </Routes>
+    </div>
   );
 };
 
