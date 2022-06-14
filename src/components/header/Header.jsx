@@ -1,6 +1,6 @@
 import React from "react";
 import { BiMenu } from "react-icons/bi";
-import { FaMoon, FaSearch, FaSun } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 import "./header.css";
 
 const Header = ({ theme, setTheme, setToggleSidebar }) => {
@@ -26,7 +26,6 @@ const Header = ({ theme, setTheme, setToggleSidebar }) => {
           ) : (
             <FaMoon className="cursor-pointer text-2xl" onClick={onClick} />
           )}
-          <FaSearch className="cursor-pointer text-2xl" />
         </div>
       </div>
     </header>
