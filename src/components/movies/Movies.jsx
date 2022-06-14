@@ -3,7 +3,8 @@ import { useMovieContext } from "../../context/movieContext";
 import { useLocation } from "react-router-dom";
 
 const Movies = () => {
-  const { getResults, requests, allMovies, imagePath } = useMovieContext();
+  const { getResults, requests, allMovies, imagePath, imagePath2 } =
+    useMovieContext();
   const location = useLocation();
 
   useEffect(() => {
@@ -22,12 +23,10 @@ const Movies = () => {
     return (
       <div className="" key={item.id}>
         <img
-          src={`${imagePath}${item.backdrop_path}`}
+          src={`${imagePath}${item.poster_path}`}
           alt="movies"
-          width={250}
-          height={5000}
+          className="h-auto w-full cursor-pointer"
         />
-        <h1>{item.title}</h1>
       </div>
     );
   });
@@ -37,7 +36,9 @@ const Movies = () => {
       return (
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Discover Movies~</h2>
-          {movieList}
+          <div className="main grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6 mt-5">
+            {movieList}
+          </div>
         </div>
       );
     case "/trending":
@@ -61,12 +62,8 @@ const Movies = () => {
           {allMovies.map((item) => {
             return (
               <div className="" key={item.id}>
-                <img
-                  src={`${imagePath}${item.backdrop_path}`}
-                  alt="movies"
-                  width={250}
-                  height={5000}
-                />
+                <img src={`${imagePath}${item.poster_path}`} alt="movies" />
+                <img src={`${imagePath}${item.backdrop_path}`} alt="movies" />
                 <h1>{item.name}</h1>
               </div>
             );

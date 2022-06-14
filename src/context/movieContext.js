@@ -8,11 +8,11 @@ const Movies = createContext();
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const imagePath = "https://image.tmdb.org/t/p/w500";
+const imagePath2 = "https://image.tmdb.org/t/p/w1280";
 
 const MovieContext = ({ children }) => {
   const [allMovies, setAllMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
 
   // Api request with axios
   const requests = {
@@ -58,7 +58,15 @@ const MovieContext = ({ children }) => {
 
   return (
     <Movies.Provider
-      value={{ links, requests, allMovies, getResults, imagePath }}
+      value={{
+        links,
+        requests,
+        allMovies,
+        getResults,
+        imagePath,
+        imagePath2,
+        isLoading,
+      }}
     >
       {children}
     </Movies.Provider>
