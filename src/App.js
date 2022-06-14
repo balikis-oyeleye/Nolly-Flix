@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Header, Sidebar, PageRoutes, Search } from "./components";
+import { Header, Sidebar, PageRoutes } from "./components";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -8,13 +8,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className={`App${theme ? " dark" : ""}`}>
+      <div className={`App${theme ? " dark" : ""} h-screen`}>
         <main
           className={`main ${
             toggleSidebar && "on-blur"
           } dark:bg-dark-blue h-screen`}
         >
-          <Search />
           <Header
             theme={theme}
             setTheme={setTheme}
