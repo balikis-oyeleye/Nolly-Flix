@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useMovieContext } from "../../context/movieContext";
 import { useLocation } from "react-router-dom";
+import noImage from "../../assets/images/no_image.jpg";
 
 const Movies = () => {
   const { getResults, requests, allMovies, imagePath, imagePath2 } =
@@ -23,7 +24,7 @@ const Movies = () => {
     return (
       <div className="" key={item.id}>
         <img
-          src={`${imagePath}${item.poster_path}`}
+          src={`${imagePath}${item.poster_path ? item.poster_path : noImage}`}
           alt="movies"
           className="h-auto w-full cursor-pointer"
         />
