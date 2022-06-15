@@ -3,6 +3,7 @@ import globalCall from "../api/tmdApi";
 import { FaTv } from "react-icons/fa";
 import { BiHome, BiMoviePlay } from "react-icons/bi";
 import { ImFire } from "react-icons/im";
+import { useEffect } from "react";
 
 const Movies = createContext();
 
@@ -12,8 +13,6 @@ const imagePath2 = "https://image.tmdb.org/t/p/w1280";
 
 const MovieContext = ({ children }) => {
   const [allMovies, setAllMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
   // Api request with axios
   const requests = {
     discoverMovies: `discover/movie?api_key=3c3d212785e118bdd582d359c385fa32&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`,
@@ -23,17 +22,14 @@ const MovieContext = ({ children }) => {
   };
 
   // Api calls with axios
-  const getResults = async (url) => {
-    setIsLoading(true);
 
+  const getResults = async (url) => {
     try {
       const request = await globalCall.get(url);
       setAllMovies(request?.data?.results);
     } catch (error) {
       console.log(error);
     }
-
-    setIsLoading(false);
   };
 
   // NavLinks for sidebar
@@ -65,7 +61,6 @@ const MovieContext = ({ children }) => {
         getResults,
         imagePath,
         imagePath2,
-        isLoading,
       }}
     >
       {children}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Movies from "./movies/Movies";
+import Loader from "../components/loader/Loader";
 
 const PageRoutes = () => {
   return (
