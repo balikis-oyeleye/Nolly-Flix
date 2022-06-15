@@ -13,9 +13,11 @@ const imagePath2 = "https://image.tmdb.org/t/p/w1280";
 
 const MovieContext = ({ children }) => {
   const [allMovies, setAllMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
   // Api request with axios
   const requests = {
-    discoverMovies: `discover/movie?api_key=3c3d212785e118bdd582d359c385fa32&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`,
+    discoverMovies: `discover/movie?api_key=3c3d212785e118bdd582d359c385fa32&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${currentPage}`,
     trendingMovies: `trending/all/day?api_key=3c3d212785e118bdd582d359c385fa32`,
     movies: `trending/movie/day?api_key=3c3d212785e118bdd582d359c385fa32`,
     tv_series: `discover/tv?api_key=3c3d212785e118bdd582d359c385fa32&language=en-US&sort_by=popularity.desc&page=1&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0`,
@@ -61,6 +63,8 @@ const MovieContext = ({ children }) => {
         getResults,
         imagePath,
         imagePath2,
+        setCurrentPage,
+        currentPage,
       }}
     >
       {children}

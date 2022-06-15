@@ -1,11 +1,19 @@
 import { useEffect } from "react";
 import { useMovieContext } from "../../context/movieContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import noImage from "../../assets/images/no_image.jpg";
 
 const Movies = () => {
-  const { getResults, requests, allMovies, imagePath } = useMovieContext();
-  const location = useLocation();
+  const {
+    getResults,
+    requests,
+    allMovies,
+    imagePath,
+    currentPage,
+    setCurrentPage,
+  } = useMovieContext();
+  let location = useLocation();
+  let navigate = useNavigate();
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -17,7 +25,25 @@ const Movies = () => {
     } else if (location.pathname === "/tv-series") {
       getResults(requests.tv_series);
     }
-  }, [location.pathname]);
+  }, [location.pathname, currentPage]);
+
+  const onNavigate = () => {
+    navigate("/movie/8/oop");
+  };
+
+  const onNext = () => {
+    setCurrentPage((prev) => {
+      return (prev += 1);
+    });
+  };
+
+  const onPrev = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => {
+        return (prev -= 1);
+      });
+    }
+  };
 
   const movieList = allMovies.map((item) => {
     return (
@@ -27,14 +53,14 @@ const Movies = () => {
             src={`${imagePath}${item.poster_path}`}
             alt="movies"
             className="h-auto w-full cursor-pointer"
-            onClick={""}
+            onClick={onNavigate}
           />
         ) : (
           <img
             src={noImage}
             alt="movies"
             className="h-auto w-full cursor-pointer"
-            onClick={""}
+            onClick={onNavigate}
           />
         )}
       </div>
@@ -48,6 +74,20 @@ const Movies = () => {
           <h2 className="text-center text-2xl">~Discover Movies~</h2>
           <div className="main grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6 mt-5">
             {movieList}
+          </div>
+          <div className="pagination flex justify-center items-center gap-3 py-4 text-2xl dark:text-white">
+            <button
+              className="border border-dark-blue px-4 dark:border-white"
+              onClick={onPrev}
+            >
+              Prev
+            </button>
+            <button
+              className="border border-dark-blue px-4 dark:border-white"
+              onClick={onNext}
+            >
+              Next
+            </button>
           </div>
         </div>
       );
