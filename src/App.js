@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Header, Sidebar, PageRoutes } from "./components";
+import { Header, Sidebar, PageRoutes, Footer } from "./components";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -20,6 +20,7 @@ function App() {
             setToggleSidebar={setToggleSidebar}
           />
           <PageRoutes />
+          <Footer />
         </main>
         {toggleSidebar && (
           <Sidebar

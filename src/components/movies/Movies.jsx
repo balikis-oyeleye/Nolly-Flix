@@ -27,12 +27,14 @@ const Movies = () => {
             src={`${imagePath}${item.poster_path}`}
             alt="movies"
             className="h-auto w-full cursor-pointer"
+            onClick={""}
           />
         ) : (
           <img
             src={noImage}
             alt="movies"
             className="h-auto w-full cursor-pointer"
+            onClick={""}
           />
         )}
       </div>

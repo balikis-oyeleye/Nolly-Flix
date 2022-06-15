@@ -1,7 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Movies from "./movies/Movies";
-import Loader from "../components/loader/Loader";
+import { Routes, Route, useParams } from "react-router-dom";
+import { Movies, Movie } from "../components";
 
 const PageRoutes = () => {
   return (
@@ -11,6 +10,7 @@ const PageRoutes = () => {
         <Route path="/trending" element={<Movies />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/tv-series" element={<Movies />} />
+        <Route path="/movie/:movieId/:moveName" element={<Movie />} />
       </Routes>
     </div>
   );
