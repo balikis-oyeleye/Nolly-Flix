@@ -2,8 +2,13 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 const Movie = () => {
-  let { movieId, movieName } = useParams();
-  return <div>Movie</div>;
+  const { movieId, movieName } = useParams();
+
+  return (
+    <div>
+      {movieId} {movieName}
+    </div>
+  );
 };
 
 export default Movie;

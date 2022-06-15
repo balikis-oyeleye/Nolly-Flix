@@ -27,10 +27,6 @@ const Movies = () => {
     }
   }, [location.pathname, currentPage]);
 
-  const onNavigate = () => {
-    navigate("/movie/8/oop");
-  };
-
   const onNext = () => {
     setCurrentPage((prev) => {
       return (prev += 1);
@@ -46,6 +42,10 @@ const Movies = () => {
   };
 
   const movieList = allMovies.map((item) => {
+    const onNavigate = () => {
+      navigate(`/movie/${item.id}/${item.title}`);
+    };
+
     return (
       <div className="" key={item.id}>
         {item.poster_path ? (
