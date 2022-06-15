@@ -18,6 +18,7 @@ const Sidebar = ({ setToggleSidebar }) => {
         <Link
           to={link.to}
           className="flex items-center gap-3 cursor-pointer font-bold"
+          onClick={onclick}
         >
           {link.icon} {link.name}
         </Link>
