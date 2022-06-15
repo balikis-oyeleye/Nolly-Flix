@@ -1,7 +1,6 @@
 import React from "react";
 import { BiMenu } from "react-icons/bi";
 import { FaMoon, FaSun } from "react-icons/fa";
-import "./header.css";
 
 const Header = ({ theme, setTheme, setToggleSidebar }) => {
   const onClick = () => {
