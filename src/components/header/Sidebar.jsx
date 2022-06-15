@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BiX } from "react-icons/bi";
 import { useMovieContext } from "../../context/movieContext";
+import "./header.css";
 
 const Sidebar = ({ setToggleSidebar }) => {
   const { links } = useMovieContext();
@@ -12,21 +13,8 @@ const Sidebar = ({ setToggleSidebar }) => {
 
   // NavLinks
   const navLinks = links.map((link, _index) => {
-    const active = () => {
-      links.forEach((element) => {
-        element.isActive = false;
-      });
-
-      setToggleSidebar(false);
-      links[_index].isActive = true;
-    };
-
     return (
-      <li
-        key={link.id}
-        className={`${link.isActive ? "active" : "not-active"}`}
-        onClick={active}
-      >
+      <li key={link.id}>
         <Link
           to={link.to}
           className="flex items-center gap-3 cursor-pointer font-bold"
