@@ -23,11 +23,19 @@ const Movies = () => {
   const movieList = allMovies.map((item) => {
     return (
       <div className="" key={item.id}>
-        <img
-          src={`${imagePath}${item.poster_path ? item.poster_path : noImage}`}
-          alt="movies"
-          className="h-auto w-full cursor-pointer"
-        />
+        {item.poster_path ? (
+          <img
+            src={`${imagePath}${item.poster_path}`}
+            alt="movies"
+            className="h-auto w-full cursor-pointer"
+          />
+        ) : (
+          <img
+            src={noImage}
+            alt="movies"
+            className="h-auto w-full cursor-pointer"
+          />
+        )}
       </div>
     );
   });
@@ -46,29 +54,27 @@ const Movies = () => {
       return (
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Trending~</h2>
-          {movieList}
+          <div className="main grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6 mt-5">
+            {movieList}
+          </div>
         </div>
       );
     case "/movies":
       return (
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Movies~</h2>
-          {movieList}
+          <div className="main grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6 mt-5">
+            {movieList}
+          </div>
         </div>
       );
     case "/tv-series":
       return (
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Tv Series~</h2>
-          {allMovies.map((item) => {
-            return (
-              <div className="" key={item.id}>
-                <img src={`${imagePath}${item.poster_path}`} alt="movies" />
-                <img src={`${imagePath}${item.backdrop_path}`} alt="movies" />
-                <h1>{item.name}</h1>
-              </div>
-            );
-          })}
+          <div className="main grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6 mt-5">
+            {movieList}
+          </div>
         </div>
       );
     default:
