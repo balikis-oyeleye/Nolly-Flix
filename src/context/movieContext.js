@@ -25,16 +25,16 @@ const MovieContext = ({ children }) => {
   // Api calls with axios
   const getResults = async (url) => {
     setIsLoading(true);
+
     try {
       const request = await globalCall.get(url);
       setAllMovies(request?.data?.results);
     } catch (error) {
       console.log(error);
     }
+
     setIsLoading(false);
   };
-
-  console.log(allMovies);
 
   // NavLinks for sidebar
   const links = [

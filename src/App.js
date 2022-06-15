@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Header, Sidebar, PageRoutes } from "./components";
+import { useMovieContext } from "./context/movieContext";
+import { Header, Sidebar, PageRoutes, Loader } from "./components";
 
 function App() {
+  const { isLoading } = useMovieContext();
+
   const [theme, setTheme] = useState(false);
   const [toggleSidebar, setToggleSidebar] = useState(false);
 
@@ -19,7 +22,7 @@ function App() {
             setTheme={setTheme}
             setToggleSidebar={setToggleSidebar}
           />
-          <PageRoutes />
+          {isLoading ? <Loader /> : <PageRoutes />}
         </main>
         {toggleSidebar && (
           <Sidebar

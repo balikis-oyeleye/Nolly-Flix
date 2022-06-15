@@ -5,3 +5,4 @@ export { default as PageRoutes } from "./Routes";
 
 export { default as Movies } from "./movies/Movies";
 export { default as Search } from "./search/Search";
+export { default as Loader } from "./loader/Loader";
