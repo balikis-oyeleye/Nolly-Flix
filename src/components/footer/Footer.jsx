@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <p>Made with ❤ Qreamvile</p>
-    </div>
+    <footer className="container mx-auto text-center my-4">
+      <p>Made with 💛 Qreamville</p>
+    </footer>
   );
 };
 
