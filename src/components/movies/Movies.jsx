@@ -4,8 +4,7 @@ import { useLocation } from "react-router-dom";
 import noImage from "../../assets/images/no_image.jpg";
 
 const Movies = () => {
-  const { getResults, requests, allMovies, imagePath, imagePath2 } =
-    useMovieContext();
+  const { getResults, requests, allMovies, imagePath } = useMovieContext();
   const location = useLocation();
 
   useEffect(() => {
