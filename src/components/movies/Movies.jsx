@@ -42,25 +42,19 @@ const Movies = () => {
   };
 
   const movieList = allMovies.map((item) => {
-    const onNavigate = () => {
-      navigate(`/movie/${item.id}/${item.title}`);
-    };
-
     return (
-      <div className="" key={item.id}>
+      <div key={item.id}>
         {item.poster_path ? (
           <img
             src={`${imagePath}${item.poster_path}`}
             alt="movies"
             className="h-auto w-full cursor-pointer"
-            onClick={onNavigate}
           />
         ) : (
           <img
             src={noImage}
             alt="movies"
             className="h-auto w-full cursor-pointer"
-            onClick={onNavigate}
           />
         )}
       </div>
@@ -73,7 +67,33 @@ const Movies = () => {
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Discover Movies~</h2>
           <div className="main grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6 mt-5">
-            {movieList}
+            {allMovies.map((item) => {
+              const onNavigate = () => {
+                navigate(
+                  `/movie/${item.id}/${item.title ? item.title : item.name}`
+                );
+              };
+
+              return (
+                <div key={item.id}>
+                  {item.poster_path ? (
+                    <img
+                      src={`${imagePath}${item.poster_path}`}
+                      alt="movies"
+                      className="h-auto w-full cursor-pointer"
+                      onClick={onNavigate}
+                    />
+                  ) : (
+                    <img
+                      src={noImage}
+                      alt="movies"
+                      className="h-auto w-full cursor-pointer"
+                      onClick={onNavigate}
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
           <div className="pagination flex justify-center items-center gap-3 py-4 text-2xl dark:text-white">
             <button
