@@ -3,7 +3,6 @@ import globalCall from "../api/tmdApi";
 import { FaTv } from "react-icons/fa";
 import { BiHome, BiMoviePlay } from "react-icons/bi";
 import { ImFire } from "react-icons/im";
-import { useEffect } from "react";
 
 const Movies = createContext();
 
@@ -13,6 +12,8 @@ const imagePath2 = "https://image.tmdb.org/t/p/w1280";
 
 const MovieContext = ({ children }) => {
   const [allMovies, setAllMovies] = useState([]);
+  const [type, setType] = useState("movie");
+  const [movie, setMovie] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
 
   // Api request with axios
@@ -33,6 +34,20 @@ const MovieContext = ({ children }) => {
       console.log(error);
     }
   };
+
+  // Api call to get movie by id
+  const getMovie = async (id) => {
+    try {
+      const request = await globalCall.get(
+        `movie/${id}?api_key=3c3d212785e118bdd582d359c385fa32`
+      );
+      setMovie(request?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(movie);
 
   // NavLinks for sidebar
   const links = [
@@ -65,6 +80,8 @@ const MovieContext = ({ children }) => {
         imagePath2,
         setCurrentPage,
         currentPage,
+        getMovie,
+        movie,
       }}
     >
       {children}
