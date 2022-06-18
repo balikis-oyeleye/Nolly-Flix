@@ -8,11 +8,9 @@ const Movies = createContext();
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const imagePath = "https://image.tmdb.org/t/p/w500";
-const imagePath2 = "https://image.tmdb.org/t/p/w1280";
 
 const MovieContext = ({ children }) => {
   const [allMovies, setAllMovies] = useState([]);
-  const [type, setType] = useState("movie");
   const [movie, setMovie] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -77,7 +75,6 @@ const MovieContext = ({ children }) => {
         allMovies,
         getResults,
         imagePath,
-        imagePath2,
         setCurrentPage,
         currentPage,
         getMovie,
