@@ -16,7 +16,7 @@ const Movies = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (location.pathname === "/") {
+    if (location.pathname === "/Nolly-Flix") {
       getResults(requests.discoverMovies);
     } else if (location.pathname === "/trending") {
       getResults(requests.trendingMovies);
@@ -62,7 +62,7 @@ const Movies = () => {
   });
 
   switch (location.pathname) {
-    case "/":
+    case "/Nolly-Flix":
       return (
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Discover Movies~</h2>
@@ -113,7 +113,7 @@ const Movies = () => {
       );
     case "/trending":
       return (
-        <div className="container mx-auto dark:text-gray-300 mt-4">
+        <div className="container mx-auto dark:text-gray-300 py-4">
           <h2 className="text-center text-2xl">~Trending~</h2>
           <div className="main grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6 mt-5">
             {movieList}
@@ -122,7 +122,7 @@ const Movies = () => {
       );
     case "/movies":
       return (
-        <div className="container mx-auto dark:text-gray-300 mt-4">
+        <div className="container mx-auto dark:text-gray-300 py-4">
           <h2 className="text-center text-2xl">~Movies~</h2>
           <div className="main grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6 mt-5">
             {movieList}
@@ -131,7 +131,7 @@ const Movies = () => {
       );
     case "/tv-series":
       return (
-        <div className="container mx-auto dark:text-gray-300 mt-4">
+        <div className="container mx-auto dark:text-gray-300 py-4">
           <h2 className="text-center text-2xl">~Tv Series~</h2>
           <div className="main grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-6 mt-5">
             {movieList}
