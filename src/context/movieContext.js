@@ -49,7 +49,13 @@ const MovieContext = ({ children }) => {
 
   // NavLinks for sidebar
   const links = [
-    { id: 0, to: "/", icon: <BiHome />, name: "Home", isActive: true },
+    {
+      id: 0,
+      to: "/Nolly-Flix",
+      icon: <BiHome />,
+      name: "Home",
+      isActive: true,
+    },
     {
       id: 1,
       to: "/trending",
