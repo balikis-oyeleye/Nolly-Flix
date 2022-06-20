@@ -51,7 +51,7 @@ const MovieContext = ({ children }) => {
   const links = [
     {
       id: 0,
-      to: "/Nolly-Flix",
+      to: "/Nolly-Flix/",
       icon: <BiHome />,
       name: "Home",
       isActive: true,

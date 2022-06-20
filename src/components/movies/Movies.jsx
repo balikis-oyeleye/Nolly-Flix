@@ -16,7 +16,7 @@ const Movies = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (location.pathname === "/Nolly-Flix") {
+    if (location.pathname === "/Nolly-Flix/") {
       getResults(requests.discoverMovies);
     } else if (location.pathname === "/trending") {
       getResults(requests.trendingMovies);
@@ -62,7 +62,7 @@ const Movies = () => {
   });
 
   switch (location.pathname) {
-    case "/Nolly-Flix":
+    case "/Nolly-Flix/":
       return (
         <div className="container mx-auto dark:text-gray-300 mt-4">
           <h2 className="text-center text-2xl">~Discover Movies~</h2>
