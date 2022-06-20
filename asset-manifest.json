@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Nolly-Flix/static/css/main.0a9e26ed.css",
+    "main.js": "/Nolly-Flix/static/js/main.048e177a.js",
+    "index.html": "/Nolly-Flix/index.html",
+    "main.0a9e26ed.css.map": "/Nolly-Flix/static/css/main.0a9e26ed.css.map",
+    "main.048e177a.js.map": "/Nolly-Flix/static/js/main.048e177a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a9e26ed.css",
+    "static/js/main.048e177a.js"
+  ]
+}
