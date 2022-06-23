@@ -9,7 +9,7 @@ Nolly-Flix is a fully responsive, interactive React app displaying some of the m
 - Change the theme to dark or light mode
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
-- Switch the large product image by clicking on the small thumbnail images
+- Check out trending movies 🎬 or tv-series
 
 ## Live link: [Nolly Flix website](https://qreamville.github.io/Nolly-Flix/)
 
