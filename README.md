@@ -1,6 +1,6 @@
 # Nolly Flix
 
-Reactjs Technical Assessment submission for the She Code Africa Mentoring Program Cohort 6 mentee application
+Nolly-Flix is a fully responsive, interactive React app displaying some of the most popular Movies, and trending tv-series via  The movie database  API
 
 ## Users should be able to:
 
