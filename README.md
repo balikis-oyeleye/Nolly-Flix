@@ -11,7 +11,7 @@ Nolly-Flix is a fully responsive, interactive React app displaying some of the m
 - View the cart and remove items from it
 
 
-## Live link: [Sneakers website](https://qreamville.github.io/SCAMP-C6-Assessment/)
+## Live link: [Nolly Flix website](https://qreamville.github.io/Nolly-Flix/)
 
 ### Built with
 
